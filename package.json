@@ -8,6 +8,10 @@
     "@aztec/contract-artifacts": "^1.5.1",
     "@aztec/dev-utils": "^1.7.0",
     "@aztec/protocol": "^0.6.0",
+    "openzeppelin-solidity": "^2.2.0",
+    "web3": "^1.0.0-beta.51"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.4.0",
     "@babel/node": "^7.2.2",
@@ -18,11 +22,10 @@
     "@babel/runtime": "^7.4.2",
     "dotenv": "^7.0.0",
     "ganache-core": "^2.5.4-beta.2",
-    "openzeppelin-solidity": "^2.2.0",
     "solhint": "^2.0.0",
     "solium": "^1.2.3",
     "truffle": "^5.0.8",
-    "web3": "^1.0.0-beta.51"
+    "ganache-cli": "^6.4.3"
   },
   "scripts": {
     "compile": "truffle compile --all",
