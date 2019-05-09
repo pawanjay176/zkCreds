@@ -1,8 +1,8 @@
-const ACE = artifacts.require('@aztec/protocol/contracts/ACE/ACE.sol');
-const AdjustSupply = artifacts.require('@aztec/protocol/contracts/ACE/validators/adjustSupply/AdjustSupply.sol');
-const BilateralSwap = artifacts.require('@aztec/protocol/contracts/ACE/validators/bilateralSwap/BilateralSwap.sol');
-const DividendComputation = artifacts.require('@aztec/protocol/contracts/ACE/validators/dividendComputation/DividendComputation.sol');
-const JoinSplit = artifacts.require('@aztec/protocol/contracts/ACE/validators/joinSplit/JoinSplit.sol');
+const ACE = artifacts.require('./ACE.sol');
+const AdjustSupply = artifacts.require('./AdjustSupply.sol');
+const BilateralSwap = artifacts.require('./BilateralSwap.sol');
+const DividendComputation = artifacts.require('./DividendComputation.sol');
+const JoinSplit = artifacts.require('./JoinSplit.sol');
 
 const utils = require('@aztec/dev-utils');
 

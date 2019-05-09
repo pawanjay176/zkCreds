@@ -1,6 +1,6 @@
 
-const ACE = artifacts.require('@aztec/protocol/contracts/ACE/ACE.sol');
-const ZkAsset = artifacts.require('@aztec/protocol/contracts/ERC1724/ZkAsset.sol');
+const ACE = artifacts.require('./ACE.sol');
+const ZkAsset = artifacts.require('./ZkAsset.sol');
 const TestERC20 = artifacts.require('./TestERC20.sol');
 
 module.exports = async (deployer, network) => {
