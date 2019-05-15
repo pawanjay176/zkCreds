@@ -5,9 +5,10 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@aztec/contract-artifacts": "^1.5.1",
-    "@aztec/dev-utils": "^1.7.0",
-    "@aztec/protocol": "^0.6.0",
+    "@aztec/dev-utils": "1.9.0",
+    "@aztec/protocol": "^0.7.0",
+    "@aztec/secp256k1": "1.0.1",
+    "aztec.js": "0.9.0",
     "openzeppelin-solidity": "^2.2.0",
     "web3": "^1.0.0-beta.51"
   },
@@ -21,16 +22,17 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/runtime": "^7.4.2",
     "dotenv": "^7.0.0",
+    "ganache-cli": "^6.4.3",
     "ganache-core": "^2.5.4-beta.2",
     "solhint": "^2.0.0",
     "solium": "^1.2.3",
-    "truffle": "^5.0.8",
-    "ganache-cli": "^6.4.3"
+    "truffle": "^5.0.17"
   },
   "scripts": {
     "compile": "truffle compile --all",
     "migrate": "truffle compile --all && truffle migrate --reset",
     "ganache": "babel-node scripts/run ganache",
+    "demo": "truffle demo.js",
     "start": "npm run ganache"
   }
 }

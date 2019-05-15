@@ -1,6 +1,7 @@
 const ACE = artifacts.require('./ACE.sol');
 const ZkAsset = artifacts.require('./ZkAsset.sol');
-const PrivateVenmo = artifacts.require('./PrivateVenmo.sol');
+const ZkAssetMintable = artifacts.require('./ZkAssetMintable.sol');
+// const PrivateVenmo = artifacts.require('./PrivateVenmo.sol');
 const TestERC20 = artifacts.require('./TestERC20.sol');
 
 module.exports = async (deployer, network) => {
@@ -21,6 +22,12 @@ module.exports = async (deployer, network) => {
     );
 
     // initialise the private asset 
-    await deployer.deploy(PrivateVenmo, aceContract.address);
+    await deployer.deploy(ZkAssetMintable,
+      aceContract.address,
+      '0x0000000000000000000000000000000000000000',
+      1,
+      true,
+     false 
+    );
   }
 };
