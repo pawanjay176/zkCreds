@@ -1,6 +1,6 @@
-
 const ACE = artifacts.require('./ACE.sol');
 const ZkAsset = artifacts.require('./ZkAsset.sol');
+const PrivateVenmo = artifacts.require('./PrivateVenmo.sol');
 const TestERC20 = artifacts.require('./TestERC20.sol');
 
 module.exports = async (deployer, network) => {
@@ -10,7 +10,7 @@ module.exports = async (deployer, network) => {
   let aceContract;
   if (network === 'development') {
     aceContract = await ACE.deployed();
-    // initialise the ZkAsset
+    // initialise the ZkAsset with an ERC20 equivilant
     await deployer.deploy(
       ZkAsset,
       aceContract.address,
@@ -19,5 +19,8 @@ module.exports = async (deployer, network) => {
       false,
       true
     );
+
+    // initialise the private asset 
+    await deployer.deploy(PrivateVenmo, aceContract.address);
   }
 };
