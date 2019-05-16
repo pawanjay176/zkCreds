@@ -12,7 +12,10 @@ A repository that helps dApp developers deploy AZTEC to a local blockchain.
 
 4. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
 
-5. Deploy AZTEC! `yarn migrate`
+5. Compile the contracts `truffle compile --all`
 
+6. Deploy AZTEC! `yarn migrate`
+
+7. Run the private payment demo. `truffle test test/demo.js`
 
 

@@ -80,11 +80,10 @@ contract('PrivateVenmo', async (accounts) => {
     await privateVenmoContract.confidentialTransfer(proofData, signatures, {
       from: accounts[0],
     });
-
+    
     console.log(
       'Bob paid sally 25 for the taxi and gets 75 back'
     );
-    assert.equal(1,2);
 
   })
 
