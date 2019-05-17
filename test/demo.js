@@ -18,6 +18,7 @@ const {
 
 
 contract('PrivateVenmo', async (accounts) => {
+
   const bob = secp256k1.accountFromPrivateKey(process.env.GANACHE_TESTING_ACCOUNT_0);
   const sally = secp256k1.accountFromPrivateKey(process.env.GANACHE_TESTING_ACCOUNT_1);
   let privateVenmoContract;

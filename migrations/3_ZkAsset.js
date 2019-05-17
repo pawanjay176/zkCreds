@@ -1,7 +1,6 @@
 const ACE = artifacts.require('./ACE.sol');
 const ZkAsset = artifacts.require('./ZkAsset.sol');
 const ZkAssetMintable = artifacts.require('./ZkAssetMintable.sol');
-// const PrivateVenmo = artifacts.require('./PrivateVenmo.sol');
 const TestERC20 = artifacts.require('./TestERC20.sol');
 
 module.exports = async (deployer, network) => {
