@@ -64,8 +64,6 @@ contract('PrivateVenmo', async (accounts) => {
 
     console.log('The fare comes to 25');
     const bobNote2 = await aztec.note.create(bob.publicKey, 75);
-    console.log(bob);
-    console.log(bobNote1.owner);
 
 
     const { proofData, expectedOutput, signatures } = aztec.proof.joinSplit.encodeJoinSplitTransaction({
