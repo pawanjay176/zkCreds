@@ -37,14 +37,14 @@ contract('Private payment', async (accounts) => {
     const newMintCounterNote = await aztec.note.create(bob.publicKey, 100);
     const zeroMintCounterNote = await aztec.note.createZeroValueNote();
     const sender = privatePaymentContract.address;
-    const mintedNotes = bobNote1;
+    const mintedNotes = [bobNote1];
 
-    const mintProof = new MintProof({
+    const mintProof = new MintProof(
       zeroMintCounterNote,
       newMintCounterNote,
       mintedNotes,
       sender,
-    });
+    );
 
     const mintData = mintProof.encodeABI();
 
