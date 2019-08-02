@@ -1,7 +1,7 @@
 const ACE = artifacts.require('./ACE.sol');
-const AdjustSupply = artifacts.require('./AdjustSupply.sol');
-const BilateralSwap = artifacts.require('./BilateralSwap.sol');
-const DividendComputation = artifacts.require('./DividendComputation.sol');
+const JoinSplitFluid = artifacts.require('./JoinSplitFluid.sol');
+const Swap = artifacts.require('./Swap.sol');
+const Dividend = artifacts.require('./Dividend.sol');
 const PrivateRange = artifacts.require('./PrivateRange.sol');
 const JoinSplit = artifacts.require('./JoinSplit.sol');
 
@@ -12,7 +12,7 @@ const {
   proofs: {
     JOIN_SPLIT_PROOF,
     MINT_PROOF,
-    BILATERAL_SWAP_PROOF,
+    SWAP_PROOF,
     DIVIDEND_PROOF,
     PRIVATE_RANGE_PROOF,
   },
@@ -22,18 +22,18 @@ const {
 module.exports = async (deployer, network) => {
   if (network === 'development') {
     await deployer.deploy(ACE);
-    await deployer.deploy(AdjustSupply);
-    await deployer.deploy(BilateralSwap);
+    await deployer.deploy(JoinSplitFluid);
+    await deployer.deploy(Swap);
     await deployer.deploy(JoinSplit);
     await deployer.deploy(PrivateRange);
 
-    await deployer.deploy(DividendComputation);
-    const ACEContract = await ACE.deployed();
-    const AdjustSupplyContract = await AdjustSupply.deployed();
+    await deployer.deploy(Dividend);
+    const ACEContract = await ACE.deployed(constants.CRS);
+    const JoinSplitFluidContract = await JoinSplitFluid.deployed();
     await ACEContract.setCommonReferenceString(constants.CRS);
-    await ACEContract.setProof(MINT_PROOF, AdjustSupplyContract.address);
-    await ACEContract.setProof(BILATERAL_SWAP_PROOF, BilateralSwap.address);
-    await ACEContract.setProof(DIVIDEND_PROOF, DividendComputation.address);
+    await ACEContract.setProof(MINT_PROOF, JoinSplitFluidContract.address);
+    await ACEContract.setProof(SWAP_PROOF, Swap.address);
+    await ACEContract.setProof(DIVIDEND_PROOF, Dividend.address);
     await ACEContract.setProof(JOIN_SPLIT_PROOF, JoinSplit.address);
     await ACEContract.setProof(PRIVATE_RANGE_PROOF, PrivateRange.address);
   }

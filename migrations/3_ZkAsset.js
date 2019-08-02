@@ -15,9 +15,7 @@ module.exports = async (deployer, network) => {
       ZkAsset,
       aceContract.address,
       testERC20.address,
-      1,
-      false,
-      true
+      1
     );
 
     // initialise the private asset 
@@ -25,8 +23,6 @@ module.exports = async (deployer, network) => {
       aceContract.address,
       '0x0000000000000000000000000000000000000000',
       1,
-      true,
-     false 
     );
   }
 };
