@@ -1,5 +1,9 @@
 const ACE = artifacts.require('./ACE.sol');
-const Govt = artifacts.require('./Govt.sol');
+const IAge = artifacts.require('./IAge.sol');
+const IBinary = artifacts.require('./IBinary.sol');
+const ILocation = artifacts.require('./ILocation.sol');
+const ISalary = artifacts.require('./ISalary.sol');
+const IDegree = artifacts.require('./IDegree.sol');
 
 module.exports = async (deployer, network) => {
 
