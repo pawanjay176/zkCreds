@@ -47,7 +47,13 @@ contract Govt is ZkAssetMintable {
     }
 
     // function validateOwnership(bytes32 _message, bytes calldata _signature, bytes32 _noteHash) external returns (bool) {
-    function validateOwnership(bytes32 _message, uint8 v, bytes32 r, bytes32 s, bytes32 _noteHash) external returns (bool) {
+    function validateOwnership(
+        bytes32 _message,
+        uint8 v,
+        bytes32 r,
+        bytes32 s,
+        bytes32 _noteHash
+    ) external view returns (bool) {
         (, , , address noteOwner ) = ace.getNote(address(this), _noteHash);
         address signer = ecrecover(_message, v, r, s);
         // address signer = recoverSignature(_message, _signature);
@@ -58,6 +64,6 @@ contract Govt is ZkAssetMintable {
     }
 
     function validateRange(uint24 _proof, bytes calldata _proofData) external {
-        bytes memory _proofOuts = ace.validateProof(_proof, msg.sender, _proofData);
+        ace.validateProof(_proof, msg.sender, _proofData);
     }
 }
