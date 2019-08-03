@@ -6,15 +6,14 @@ import "@aztec/protocol/contracts/ERC1724/ZkAssetMintable.sol";
 import "@aztec/protocol/contracts/ERC1724/ZkAsset.sol";
 import "@aztec/protocol/contracts/ACE/ACE.sol";
 import "@aztec/protocol/contracts/ERC20/ERC20Mintable.sol";
-// import "@aztec/protocol/contracts/libs/LibEIP712.sol";
 import "@aztec/protocol/contracts/libs/ProofUtils.sol";
 import "@aztec/protocol/contracts/ACE/validators/privateRange/PrivateRange.sol";
 
 
 
-contract Govt is ZkAssetMintable {
+contract IDegree is ZkAssetMintable {
     // event UpdateTotalMinted(bytes32 noteHash, bytes noteData);
-    address public govtAddr;
+    address public degreeAddr;
 
     constructor(
         address _aceAddress,
@@ -25,11 +24,11 @@ contract Govt is ZkAssetMintable {
         _linkedTokenAddress,
         _scalingFactor
     ) {
-        govtAddr = msg.sender;
+        degreeAddr = msg.sender;
     }
 
     function register(uint24 _proof, bytes calldata _proofData) external {
-        require(msg.sender == govtAddr, "only the owner can register others");
+        require(msg.sender == degreeAddr, "only the owner can register others");
         require(_proofData.length != 0, "proof invalid");
 
         (bytes memory _proofOutputs) = ace.mint(_proof, _proofData, address(this));
@@ -47,13 +46,7 @@ contract Govt is ZkAssetMintable {
     }
 
     // function validateOwnership(bytes32 _message, bytes calldata _signature, bytes32 _noteHash) external returns (bool) {
-    function validateOwnership(
-        bytes32 _message,
-        uint8 v,
-        bytes32 r,
-        bytes32 s,
-        bytes32 _noteHash
-    ) external view returns (bool) {
+    function validateOwnership(bytes32 _message, uint8 v, bytes32 r, bytes32 s, bytes32 _noteHash) external view returns (bool) {
         (, , , address noteOwner ) = ace.getNote(address(this), _noteHash);
         address signer = ecrecover(_message, v, r, s);
         // address signer = recoverSignature(_message, _signature);
@@ -64,6 +57,6 @@ contract Govt is ZkAssetMintable {
     }
 
     function validateRange(uint24 _proof, bytes calldata _proofData) external {
-        ace.validateProof(_proof, msg.sender, _proofData);
+        bytes memory _proofOuts = ace.validateProof(_proof, msg.sender, _proofData);
     }
 }

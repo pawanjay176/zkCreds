@@ -9,6 +9,11 @@ import "@aztec/protocol/contracts/ACE/validators/joinSplit/JoinSplit.sol";
 import "@aztec/protocol/contracts/ACE/validators/dividend/Dividend.sol";
 import "@aztec/protocol/contracts/ACE/validators/privateRange/PrivateRange.sol";
 import "@aztec/protocol/contracts/ERC1724/ZkAsset.sol";
+import "@aztec/protocol/contracts/ERC1724/ZkAssetMintable.sol";
+import "@aztec/protocol/contracts/ERC20/ERC20Mintable.sol";
+import "@aztec/protocol/contracts/libs/ProofUtils.sol";
+
+import "openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 contract DummyContract {
 
