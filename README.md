@@ -1,8 +1,10 @@
-# ETH India Project
+# zkCreds
 
-## Verifying ownership through ZKP (without revealing anything)
+## Credential verification with no data leakage
+The Problem it solves
+DESCRIBE WHAT CAN PEOPLE USE IT FOR, OR HOW IT MAKES EXISTING TASKS EASIER/SAFER E.T.C
 
-Built on top of Aztec Protocol.
+In the current systems if we want to prove some data or presense of data then we are almost always required to submit excess data. Like if you are going to watch a R Rated movie then the only thing required would be 
 
 ### Getting started
 

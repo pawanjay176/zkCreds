@@ -7,7 +7,31 @@ module.exports = async (deployer, network) => {
   if (network === 'development') {
     aceContract = await ACE.deployed();
     await deployer.deploy(
-      Govt,
+      IAge,
+      aceContract.address,
+      '0x0000000000000000000000000000000000000000',
+      1
+    );
+    await deployer.deploy(
+      IBinary,
+      aceContract.address,
+      '0x0000000000000000000000000000000000000000',
+      1
+    );
+    await deployer.deploy(
+      ILocation,
+      aceContract.address,
+      '0x0000000000000000000000000000000000000000',
+      1
+    );
+    await deployer.deploy(
+      ISalary,
+      aceContract.address,
+      '0x0000000000000000000000000000000000000000',
+      1
+    );
+    await deployer.deploy(
+      IDegree,
       aceContract.address,
       '0x0000000000000000000000000000000000000000',
       1
