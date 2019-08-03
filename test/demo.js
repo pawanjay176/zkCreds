@@ -6,10 +6,10 @@ const dotenv = require("dotenv");
 const ethers = require("ethers");
 dotenv.config();
 const secp256k1 = require("@aztec/secp256k1");
-const Govt = artifacts.require("./Govt.sol");
+const Govt = artifacts.require("./ISalary.sol");
 
 const {
-  proofs: { MINT_PROOF, PRIVATE_RANGE_PROOF }
+  proofs: { MINT_PROOF, PRIVATE_RANGE_PROOF, DIVIDEND_PROOF }
 } = utils;
 
 const { MintProof } = aztec;
@@ -72,5 +72,27 @@ contract("Govt", async accounts => {
     const proof = new aztec.PrivateRangeProof(note1, note2, note3, bob.address);
 
     await govt.validateRange(PRIVATE_RANGE_PROOF, proof.encodeABI());
+
+    // Dividend proof
+    
+    // target <= (zb/za) * notional
+    const notional = await aztec.note.create(bob.publicKey, 900000); //loan amount
+    const residual = await aztec.note.create(bob.publicKey, 40000); //rounding error
+    const target = await aztec.note.create(bob.publicKey, 500000); // alice's salary
+    const za = 100;
+    const zb = 5;
+    const proofDividend = new aztec.DividendProof(
+      notional,
+      residual,
+      target,
+      bob.address,
+      za,
+      zb
+    );
+    
+    console.log("Created proof ", proofDividend);
+
+    await govt.validateRatio(DIVIDEND_PROOF, proofDividend.encodeABI());
+    console.log("Sab mangalmay");
   });
 });
