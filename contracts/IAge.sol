@@ -57,6 +57,6 @@ contract IAge is ZkAssetMintable {
     }
 
     function validateRange(uint24 _proof, bytes calldata _proofData) external {
-        bytes memory _proofOuts = ace.validateProof(_proof, msg.sender, _proofData);
+        ace.validateProof(_proof, msg.sender, _proofData);
     }
 }
