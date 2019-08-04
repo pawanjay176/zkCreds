@@ -62,7 +62,7 @@ We are using `divident proofs` to prove that 5% of alice's salary is greater tha
 
 2. Install the dependencies `cd AztecDemo && yarn install`
 
-3. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
+3. Start up Ganache `yarn start`
 
 4. Compile the contracts `truffle compile --all`
 
