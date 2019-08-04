@@ -30,28 +30,12 @@ for proving things without having another in person verification.
 * Found a bug or two in `aztec.js` library which caused us major headache for a while.
 * We encountered huge challenge when using `truffle'test suite`. It made some assumptions and didn't specify what they were and due to which we had to check our smart contracts, test logic again and again. The problem was instead in truffle's architecture (assuming that contract instance is maintained in one test, it wasn't and there was almost no logs showing why our tests were failing)
 
-## Credentials
+### Credentials
 - Govt Issued Age
 - Govt Issued Pincode
 - Hospital issued AnnualSalary
 - University issued HighestEducation
 - BinaryAssets (Verified Phone No or not, Driving License or not)
-
-### Getting started and Running demo
-
-1. Clone this repository `git clone git@github.com:pawanjay176/AztecDemo.git`
-
-2. Install the dependencies `cd AztecDemo && yarn install`
-
-3. Rename the `.env` file  `mv RENAME_ME.env .env`
-
-4. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
-
-5. Compile the contracts `truffle compile --all`
-
-6. Deploy AZTEC! `yarn migrate`
-
-7. Run the complete general flow. `truffle test test/flow.js`
 
 
 ## General Flow
@@ -71,6 +55,22 @@ We are using `private range proofs` where we need to prove that a number is bigg
 
 We are using `divident proofs` to prove that 5% of alice's salary is greater than the threshold amount which bank requires to get a loan.
 
+
+### Getting started and Running demo
+
+1. Clone this repository `git clone git@github.com:pawanjay176/AztecDemo.git`
+
+2. Install the dependencies `cd AztecDemo && yarn install`
+
+3. Rename the `.env` file  `mv RENAME_ME.env .env`
+
+4. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
+
+5. Compile the contracts `truffle compile --all`
+
+6. Deploy AZTEC! `yarn migrate`
+
+7. Run the complete general flow. `truffle test test/flow.js`
 
 ## License
 
