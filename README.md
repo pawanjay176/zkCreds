@@ -62,15 +62,13 @@ We are using `divident proofs` to prove that 5% of alice's salary is greater tha
 
 2. Install the dependencies `cd AztecDemo && yarn install`
 
-3. Rename the `.env` file  `mv RENAME_ME.env .env`
+3. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
 
-4. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
+4. Compile the contracts `truffle compile --all`
 
-5. Compile the contracts `truffle compile --all`
+5. Deploy AZTEC! `yarn migrate`
 
-6. Deploy AZTEC! `yarn migrate`
-
-7. Run the complete general flow. `truffle test test/flow.js`
+6. Run the complete general flow. `truffle test test/flow.js`
 
 ## License
 
