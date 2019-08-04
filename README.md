@@ -26,6 +26,9 @@ for proving things without having another in person verification.
 * Aztec doesn't have support yet for `PublicRangeProofs` which allows you to check if a note value lies between 2 integers. Instead we had to work with the existing `PrivateRangeProofs` where we can check if a given note has value greater than another comparison note. Had to devise a hack to use this model to get the `PublicRangeProof` functionality.
 * Found a bug or two in `aztec.js` library which caused us major headache for a while.
 
+### Technologies we used
+Truffle, Solidity, Javascript, Ganache, ZKPs, Aztec Protocol
+
 ### Getting started
 
 1. Clone this repository `git clone git@github.com:pawanjay176/AztecDemo.git`
