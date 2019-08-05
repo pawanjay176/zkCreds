@@ -70,6 +70,8 @@ We are using `divident proofs` to prove that 5% of alice's salary is greater tha
 
 6. Run the complete general flow. `truffle test test/flow.js`
 
+[![zkCreds](http://img.youtube.com/vi/-uwnMzfeMuE/0.jpg)](http://www.youtube.com/watch?v=-uwnMzfeMuE "zkCreds")
+
 ## License
 
 MIT
